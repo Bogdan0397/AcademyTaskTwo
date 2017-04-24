@@ -1,8 +1,8 @@
 package person;
 
-/**
- * Created by koqfl on 24.04.2017.
- */
+import java.util.Calendar;
+
+
 public class Person {
     private String name;
     private int birthYear;
@@ -11,7 +11,7 @@ public class Person {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -19,23 +19,28 @@ public class Person {
         return birthYear;
     }
 
-    public void setBirthYear(int birthYear) {
+    private void setBirthYear(int birthYear) {
         this.birthYear = birthYear;
     }
     Person(){
 
     }
-    Person(String name, int birthYear){
+    private Person(String name, int birthYear){
         setName(name);
         setBirthYear(birthYear);
     }
 
-    public void input(String name, int birthYear){
+    private int age(){
+        Calendar calendar = Calendar.getInstance();
+        return calendar.get(Calendar.YEAR)-birthYear;
+    }
+
+    private void input(String name, int birthYear){
         this.name = name;
         this.birthYear = birthYear;
     }
-    public String output(){
-        return name+" "+birthYear+" ";
+    private String output(){
+        return name+" "+birthYear+" "+age();
 
 
     }
